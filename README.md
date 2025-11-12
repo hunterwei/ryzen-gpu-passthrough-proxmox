@@ -64,13 +64,13 @@ The process of doing a GPU passthrough isn't complicated, it's about making sure
     ```
     in my case, it looks like this:
     ```
-    34:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Device [1002:1681] (rev 0a)
-    34:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Device [1002:1640]
+    05:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Lucienne [1002:164c] (rev c1)
+    05:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Renoir Radeon High Definition Audio Controller [1002:1637]
     ```
     
     From this information, we can extract some PCI IDs and device numbers. From now on, when you see these numbers in some commands, replace them with your own numbers:
-    - GPU: `1002:1681` + `0000:34:00.0`
-    - Audio Device: `1002:1640` + `0000:34:00.1`
+    - GPU: `1002:164c` + `0000:05:00.0`
+    - Audio Device: `1002:1637` + `0000:05:00.1`
 
 1. Now, we need to enable iommu which allows the CPU to have full control of direct memory access devices (like the GPU)
     ```
