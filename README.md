@@ -86,9 +86,9 @@ The process of doing a GPU passthrough isn't complicated, it's about making sure
     echo "vfio_virqfd" >> /etc/modules
     ```
 
-1. Then, we need to tell `vfio` which devices to virtualize (the GPU `1002:1681` + Audio `1002:1640`)
+1. Then, we need to tell `vfio` which devices to virtualize (the GPU `1002:164c` + Audio `1002:1637`)
     ```
-    echo "options vfio-pci ids=1002:1681,1002:1640" >> /etc/modprobe.d/vfio.conf
+    echo "options vfio-pci ids=1002:164c,1002:1637" >> /etc/modprobe.d/vfio.conf
     ```
 
 1. Load the `vfio-pci` driver before the original one. This prevents the host from using the GPU and allows for virtualization. These are the default AMD + Sound drivers, but you can find the ones your system is using by running `lspci -nnk` and checking the "Kernel driver in Use" section.
