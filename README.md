@@ -93,7 +93,6 @@ The process of doing a GPU passthrough isn't complicated, it's about making sure
 
 1. Load the `vfio-pci` driver before the original one. This prevents the host from using the GPU and allows for virtualization. These are the default AMD + Sound drivers, but you can find the ones your system is using by running `lspci -nnk` and checking the "Kernel driver in Use" section.
     ```
-    echo "softdep radeon pre: vfio-pci" >> /etc/modprobe.d/vfio.conf
     echo "softdep amdgpu pre: vfio-pci" >> /etc/modprobe.d/vfio.conf
     echo "softdep snd_hda_intel pre: vfio-pci" >> /etc/modprobe.d/vfio.conf
     ```
